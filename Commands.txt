@@ -85,13 +85,14 @@ STORED AS TEXTFILE;
 //Describe Extended TwitterMod;
 
 
-Load Data Local Inpath 
-'/home/cloudera/Downloads/HIVE_Demo/Twitter.txt'
-Into Table TwitterMod Partition (type='text');
+Insert Into TwitterMod Partition (type='text')
+Select date,date_time,tweet_text,media_type,hashtags,tweet_url,retweets From Twitter Where type='text';
 
-Load Data Local Inpath 
-'/home/cloudera/Downloads/HIVE_Demo/Twitter.txt'
-Into Table TwitterMod Partition (type='link');
+Insert Into TwitterMod Partition (type='link')
+Select date,date_time,tweet_text,media_type,hashtags,tweet_url,retweets From Twitter Where type='link';
+
+Insert Into TwitterMod Partition (type='video')
+Select date,date_time,tweet_text,media_type,hashtags,tweet_url,retweets From Twitter Where type='video';
 
 
 //See if partition works
@@ -99,6 +100,8 @@ Show Partitions TwitterMod;
 Select Count(*) From Twitter Where type='text';
 Select Count(*) From TwitterMod Where type='text';
 
+
 //See if bucket works
-Select Min(date), Max(date) FROM TwitterMod Tablesample(Bucket 1 out of 3 on date);
-Select Min(date), Max(date) FROM Twitter;
+set hive.enforce.bucketing = true;
+Select Count(date) FROM TwitterMod Tablesample(Bucket 1 out of 3 on date);
+Select Count(date) FROM Twitter;
