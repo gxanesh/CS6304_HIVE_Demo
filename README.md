@@ -59,3 +59,8 @@ hdfs dfs -chmod g+w /user/hive/warehouse
 
 #Initialize Derby and hive (ONE TIME only)  
 schematool -initSchema -dbType derby  
+
+
+
+## Check HDFS on browser
+http://localhost:9870/
