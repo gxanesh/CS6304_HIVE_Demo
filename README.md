@@ -16,15 +16,18 @@ hdfs dfs -chmod g+w /tmp
 ```
 hdfs dfs -mkdir -p /user/hive/warehouse
 ```
+```
 hdfs dfs -chmod g+w /user/hive/warehouse  
 ```
 
 ### Initialize Derby and hive (ONE TIME only)
+```
 schematool -initSchema -dbType derby  
-
+```
 ### To start Hive
+```
 hive  
-
+```
 
 ## Full Hive Configuration (Self Note. NOT for students)  
 #Hive Installation  
