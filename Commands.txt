@@ -54,13 +54,14 @@ Alter Table Twitter Add Partition (type='text');
 
 //create table
 Create Table TwitterMod (
-`date` date,
-date_time timestamp,
-tweet_text string,
-media_type string,
-hashtags string,
-tweet_url string, 
-retweets int)
+  `date` date,
+  date_time timestamp,
+  tweet_text string,
+  media_type string,
+  hashtags string,
+  tweet_url string, 
+  retweets int
+)
 Partitioned By (type string)
 Clustered By (`date`) Into 3 Buckets
 ROW FORMAT DELIMITED
