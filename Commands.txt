@@ -53,7 +53,7 @@ Alter Table Twitter Add Partition (type='text');
 
 
 //create table
-Create Table TwitterMod (
+Create Table TwitterMod1 (
   `date` date,
   date_time timestamp,
   tweet_text string,
