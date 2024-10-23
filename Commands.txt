@@ -10,7 +10,19 @@ Show Databases;
 ##### Table Twitter ######
 
 //create table
-Create Table Twitter (`date` date, date_time timestamp, tweet_text string, type string, media_type string, hashtags string, tweet_url string, retweets int) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+Create Table Twitter (
+  `date` date, 
+  date_time timestamp, 
+  tweet_text string, 
+  type string, 
+  media_type string, 
+  hashtags string, 
+  tweet_url string, 
+  retweets int
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+LINES TERMINATED BY '\n' 
+STORED AS TEXTFILE;
 
 //Drop Table Twitter
 
